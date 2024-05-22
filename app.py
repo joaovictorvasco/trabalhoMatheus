@@ -1,8 +1,8 @@
 import streamlit as st
 # Criando a barra superior
 st.write("""
-    <div style="background-color:#f63366;padding:10px;border-radius:10px;">
-        <h1 style="color:white;text-align:center;">Barra Superior</h1>
+    <div style="background-color:#f63366;padding:10px;border-radius:200px;">
+        <h1 style="color:white;text-align:center;">Fortune Card</h1>
     </div>
 """, unsafe_allow_html=True)
 
