@@ -9,11 +9,8 @@ st.write("""
 # Conteúdo principal
 st.write("""
     # Conteúdo Principal
-    Este é o conteúdo principal da página.
+    'Nosso app serve para prever estatisticamente o número de cartões numa determinada partida
 """)
 
-st.title('Fortune Card')
-
-st.write('Nosso app serve para prever estatisticamente o número de cartões numa determinada partida')
 tab_jogos, tab_juizes, tab_times = st.tabs(['Jogos', 'Juizes', 'Times'])
 
