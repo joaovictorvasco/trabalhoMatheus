@@ -104,9 +104,6 @@ with tab2:
     if tabela_html:
         tabela_df = pd.read_html(str(tabela_html))[0]
         
-        # Remover o índice
-        tabela_df = tabela_df.set_index('Rk')  # Definir a coluna 'Rk' como índice
-        
         # Remover as colunas indesejadas
         cols_to_drop = ['Attendance', 'Top Team Scorer', 'Goalkeeper', 'Notes', 'Pts/MP', 'xG', 'xGA', 'xGD', 'xGD/90']
         tabela_df = tabela_df.drop(columns=cols_to_drop)
@@ -125,6 +122,8 @@ with tab2:
             'Squad': 'Time',
             'Rk': 'Classificação'
         })
+        # Remover o índice
+        tabela_df = tabela_df.set_index('Rk')  # Definir a coluna 'Rk' como índice
         
         # Reordenar as colunas para que 'Time' e 'Pontos' sejam as primeiras
         cols = ['Time', 'Pontos'] + [col for col in tabela_df.columns if col not in ['Time', 'Pontos']]
