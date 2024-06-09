@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from xgboost import XGBRegressor
+import xgboost
 
 # Criando a barra superior
 st.write("""
@@ -32,7 +32,7 @@ with st.form(key='form'):
 if enviar:
     lista = [{'Home': op_home, 'Away': op_away, 'ano': 2024}]
     df = pd.Dataframe(lista)
-    model = XGBRegressor()
+    model = xgboost.XGBRegressor()
     model.load_model('modelo.json') 
     resultado = model.predict(df)
 
