@@ -6,7 +6,7 @@ import os
 
 main_body_logo = "fortune.png"
 sidebar_logo = "fortune.png"
-background_color = "#334257"
+background_color = "#0a1931"
 
 # Para exibir um logo na barra lateral, primeiro, chamamos st.sidebar para operações na barra lateral
 st.sidebar.image(sidebar_logo, width=250)  # Ajuste a largura conforme necessário
