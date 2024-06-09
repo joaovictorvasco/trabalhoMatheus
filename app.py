@@ -104,10 +104,12 @@ with tab2:
     if tabela_html:
         tabela_df = pd.read_html(str(tabela_html))[0]
         
-        # Exibir os nomes das colunas para verificação
-        st.write("Nomes das colunas originais:", tabela_df.columns.tolist())
         # Remover o índice
         tabela_df = tabela_df.set_index('Rk')  # Definir a coluna 'Rk' como índice
+        
+        # Remover as colunas indesejadas
+        cols_to_drop = ['Attendance', 'Top Team Scorer', 'Goalkeeper', 'Notes', 'Pts/MP', 'xG', 'xGA', 'xGD', 'xGD/90']
+        tabela_df = tabela_df.drop(columns=cols_to_drop)
 
         # Renomear as colunas conforme solicitado
         tabela_df = tabela_df.rename(columns={
