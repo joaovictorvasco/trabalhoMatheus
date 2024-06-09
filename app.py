@@ -1,4 +1,4 @@
-# Install lxml if not already installed
+
 import lxml
 import streamlit as st
 import pandas as pd
@@ -88,7 +88,7 @@ with tab1:
                     **Considerações para Apostas:**
                     Dada a baixa confiabilidade das previsões deste modelo, recomendamos cautela ao usar estas informações para suas decisões. Esses números devem ser vistos como estimativas, e é crucial considerar outras fontes e fatores ao tomar decisões baseadas nessas previsões.
                 """, unsafe_allow_html=True)
-                
+
 with tab2:
     st.write("### Tabela do Brasileirão 2024")
     
@@ -107,7 +107,12 @@ with tab2:
     else:
         st.write("Tabela não encontrada.")
 
-
 # Resetar o estado ao mudar de aba
 def on_tab_change():
     st.session_state.show_result = False
+
+# Adicionar um listener para mudança de abas
+# Note que Streamlit não tem um on_change direto para abas, você pode usar um hack com radio buttons se necessário
+# This is a placeholder for illustration
+st.radio("Tabs", ["Jogos", "Tabela"], on_change=on_tab_change)
+
