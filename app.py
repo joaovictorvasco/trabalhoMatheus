@@ -24,6 +24,9 @@ times = ['Ath Paranaense', 'Atl Goianiense', 'Atlético Mineiro', 'Bahia', 'Bota
 # Ordenando a lista de times
 times_ordenados = sorted(times)
 
+model = xgboost.XGBRegressor()
+model.load_model('modelo.json') 
+
 with st.form(key='form'):
     op_home = st.selectbox('Escolha uma opção p/ time da casa', times_ordenados)
     op_away = st.selectbox('Escolha outra opção p/ time visitante', times_ordenados)
@@ -32,7 +35,5 @@ with st.form(key='form'):
 if enviar:
     lista = [{'Home': op_home, 'Away': op_away, 'ano': 2024}]
     df = pd.Dataframe(lista)
-    model = xgboost.XGBRegressor()
-    model.load_model('modelo.json') 
     resultado = model.predict(df)
 
