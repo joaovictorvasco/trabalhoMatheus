@@ -23,7 +23,7 @@ st.markdown(f"""
 
 # Main content
 st.markdown("""
-    <h2 style="font-size:24px;">Nosso app serve para prever estatisticamente o número de cartões numa determinada partida</h2>
+    <h2 style="font-size:28px;">Nosso app serve para prever estatisticamente o número de cartões numa determinada partida</h2>
 """, unsafe_allow_html=True)
 
 
