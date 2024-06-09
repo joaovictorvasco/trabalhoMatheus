@@ -71,13 +71,16 @@ if enviar:
             ### Previsão de Cartões para a Partida
             **Confronto:** {op_home} vs {op_away}
             **Previsão de Cartões Total:** {int(np.round(resultado[0], 0))}
-            **Precisão do Modelo:** O valor de \( R^2 \) reportado é 2, indicando um possível erro de cálculo ou interpretação.
-            
+        
+            **Precisão do Modelo:**
+            - \( R^2 \): {r2:.2f} (Um valor negativo indica que o modelo não tem poder preditivo adequado.)
+            - Erro Absoluto Médio (MAE): {mae:.2f}
+            - Erro Quadrático Médio (MSE): {mse:.2f}
+        
             **Considerações para Apostas:**
-            Recomendamos cautela ao usar estas previsões para apostas ou decisões críticas. Considere este número como uma estimativa e não como uma certeza absoluta. A análise estatística pode fornecer insights valiosos, mas sempre envolve algum grau de incerteza.
-
-            Avalie outras fontes e use seu julgamento ao tomar decisões baseadas nestas informações.
+            Dada a baixa confiabilidade das previsões deste modelo, recomendamos cautela ao usar estas informações para decisões críticas. Esses números devem ser vistos como estimativas, e é crucial considerar outras fontes e fatores ao tomar decisões baseadas nessas previsões.
         """, unsafe_allow_html=True)
+
 
 
 with tab2:
