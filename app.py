@@ -44,7 +44,7 @@ with tab1:
             model = XGBRegressor()
             model.load_model('modelo.json') 
             resultado = model.predict(df)
-            st.metric('Nº de cartões predito', resultado)
+            st.metric('Nº de cartões predito', int(np.round(resultado[0], 0)))
 
 # Conteúdo para a aba "Tabela"
 with tab2:
