@@ -34,10 +34,13 @@ with st.form(key='form'):
     enviar = st.form_submit_button('Enviar')
 
 if enviar:
-    lista = [{'Home': op_home, 'Away': op_away, 'ano_x': 2024}]
-    df = pd.DataFrame(lista)
-    df['Home'] = df['Home'].astype('category')
-    df['Away'] = df['Away'].astype('category')
-    resultado = model.predict(df)
-
-    st.metric('Nº de cartões predito', int(np.round(resultado[0], 0)))
+    if op_home == op_away:
+        st.error('Erro: O mesmo time não pode ser escolhido como time da casa e visitante.')
+    else:
+        lista = [{'Home': op_home, 'Away': op_away, 'ano_x': 2024}]
+        df = pd.DataFrame(lista)
+        df['Home'] = df['Home'].astype('category')
+        df['Away'] = df['Away'].astype('category')
+        resultado = model.predict(df)
+    
+        st.metric('Nº de cartões predito', int(np.round(resultado[0], 0)))
