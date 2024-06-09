@@ -96,10 +96,15 @@ with tab2:
     st.markdown(
         """
         <style>
-        .css-1l269bu.e1fqkh3o3 {
+        .stDataFrame {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .stDataFrame > div {
             width: 100% !important;
         }
-        .stDataFrame div {
+        .stDataFrame table {
             width: 100% !important;
         }
         </style>
@@ -146,7 +151,7 @@ with tab2:
         tabela_df = tabela_df[cols]
         
         # Ajustar o estilo da tabela para ocupar mais espaço
-        st.dataframe(tabela_df, height=750, width=2000)  # Ajuste a altura e largura conforme necessário
+        st.dataframe(tabela_df, height=750, use_container_width=True)  # Ajuste a altura e largura conforme necessário
     else:
         st.write("Tabela não encontrada.")
 
