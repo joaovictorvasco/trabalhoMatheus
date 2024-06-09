@@ -3,7 +3,7 @@ import pandas as pd
 from xgboost import XGBRegressor
 import numpy as np
 
-main_body_logo = 
+main_body_logo = "images/logo_fortune.png"
 st.logo(sidebar_logo, icon_image=main_body_logo)
 
 # Criando a barra superior
