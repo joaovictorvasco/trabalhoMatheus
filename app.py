@@ -194,6 +194,7 @@ with tab3:
             st.write("Tabela de fixtures não encontrada.")
     else:
         st.write("Por favor, selecione um time para ver os próximos jogos.")
+    
             
 # Resetar o estado ao mudar de aba
 def on_tab_change():
