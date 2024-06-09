@@ -5,12 +5,14 @@ import numpy as np
 
 main_body_logo = "images/logo_fortune.png"
 sidebar_logo = "images/logo_fortune.png"
-st.logo(sidebar_logo)
+
+# Para exibir um logo na barra lateral, primeiro, chamamos st.sidebar para operações na barra lateral
+st.sidebar.image(sidebar_logo, width=150)  # Ajuste a largura conforme necessário
 
 # Criando a barra superior
-st.write("""
+st.markdown(f"""
     <div style="background-color:#f63366;padding:10px;border-radius:200px;">
-        <h1 style="color:white;text-align:center;">Fortune Card</h1>
+        <h1 style="color:white;text-align:center;"><img src="{main_body_logo}" alt="logo" style="height:50px;"> Fortune Card</h1>
     </div>
 """, unsafe_allow_html=True)
 
