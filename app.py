@@ -129,10 +129,10 @@ with tab2:
         cols = ['Time', 'Pontos'] + [col for col in tabela_df.columns if col not in ['Time', 'Pontos']]
         tabela_df = tabela_df[cols]
         
-        st.dataframe(tabela_df)
+        # Ajustar o estilo da tabela para ocupar mais espaço
+        st.dataframe(tabela_df, height=800, width=1200)  # Ajuste a altura e largura conforme necessário
     else:
         st.write("Tabela não encontrada.")
-
 # Resetar o estado ao mudar de aba
 def on_tab_change():
     st.session_state.show_result = False
