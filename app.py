@@ -22,7 +22,7 @@ times = ['Ath Paranaense', 'Atl Goianiense', 'Atlético Mineiro', 'Bahia', 'Bota
 # Ordenando a lista de times
 times_ordenados = sorted(times)
 
-with st.form(key='form):
+with st.form(key='form'):
     op_home = st.selectbox('Escolha uma opção p/ time da casa', times_ordenados)
     op_away = st.selectbox('Escolha outra opção p/ time visitante', times_ordenados)
     enviar = st.form_submit_button('Enviar')
