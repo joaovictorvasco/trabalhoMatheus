@@ -1,6 +1,5 @@
 # Install lxml if not already installed
-!pip install lxml
-
+import lxml
 import streamlit as st
 import pandas as pd
 from xgboost import XGBRegressor
