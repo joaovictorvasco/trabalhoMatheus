@@ -12,10 +12,10 @@ st.write("""
 
 # Conteúdo principal
 st.write("""
-    # Nosso app serve para prever estatisticamente o número de cartões numa determinada partida
+    # Nosso app prevê estatisticamente o número de cartões numa determinada partida
 """)
 
-tab_jogos = st.tabs(['Jogos'])
+tab_jogos, tab_tabela = st.tabs(['Jogos'], ['Tabela'])
 
 times = ['Ath Paranaense', 'Atl Goianiense', 'Atlético Mineiro', 'Bahia', 'Botafogo (RJ)', 
          'Corinthians', 'Criciúma', 'Cruzeiro', 'Cuiabá', 'Flamengo', 'Fluminense', 
