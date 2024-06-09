@@ -11,12 +11,15 @@ background_color = "#0a1931"
 # Sidebar logo display
 st.sidebar.image(sidebar_logo, width=250)
 
-st.sidebar.write("""
-    Aplicativo desenvolvido por:
-    - Gabriel Novais
-    - João Victor Sepulveda
-    - Pedro Henrique Lapa
-""")
+st.sidebar.markdown("""
+    <div style="font-size: 16px;">Aplicativo desenvolvido por:</div>
+    <ul style="font-size: 16px; margin-left: 20px;">
+        <li>Gabriel Novais</li>
+        <li>João Victor Sepulveda</li>
+        <li>Pedro Henrique Lapa</li>
+    </ul>
+""", unsafe_allow_html=True)
+
 # Main logo display, centered
 st.image(main_logo, width=700, use_column_width=True)
 
