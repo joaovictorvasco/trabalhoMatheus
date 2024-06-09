@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from xgboost import XGBRegressor
 import numpy as np
+import os
 
 main_body_logo = "fortune.png"
 sidebar_logo = "fortune.png"
