@@ -13,7 +13,7 @@ st.sidebar.image(sidebar_logo, width=250)
 
 st.sidebar.markdown("""
     <div style="font-size: 20px;">Aplicativo desenvolvido por:</div>
-    <ul style="font-size: 168x; margin-left: 20px;">
+    <ul style="font-size: 18px; margin-left: 20px;">
         <li>Gabriel Novais</li>
         <li>João Victor Sepulveda</li>
         <li>Pedro Henrique Lapa</li>
