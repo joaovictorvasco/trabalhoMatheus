@@ -8,11 +8,10 @@ st.write("""
 
 # Conteúdo principal
 st.write("""
-    # Conteúdo Principal
-    Nosso app serve para prever estatisticamente o número de cartões numa determinada partida
+    # Nosso app serve para prever estatisticamente o número de cartões numa determinada partida
 """)
 
-tab_jogos, tab_juizes, tab_times = st.tabs(['Jogos', 'Juizes', 'Times'])
+tab_jogos = st.tabs(['Jogos'])
 
 st.write("""
     <div style="position: absolute; top: 10px; left: 10px;">
