@@ -3,6 +3,9 @@ import pandas as pd
 from xgboost import XGBRegressor
 import numpy as np
 
+main_body_logo = 
+st.logo(sidebar_logo, icon_image=main_body_logo)
+
 # Criando a barra superior
 st.write("""
     <div style="background-color:#f63366;padding:10px;border-radius:200px;">
