@@ -12,8 +12,8 @@ background_color = "#0a1931"
 st.sidebar.image(sidebar_logo, width=250)
 
 st.sidebar.markdown("""
-    <div style="font-size: 16px;">Aplicativo desenvolvido por:</div>
-    <ul style="font-size: 16px; margin-left: 20px;">
+    <div style="font-size: 20px;">Aplicativo desenvolvido por:</div>
+    <ul style="font-size: 168x; margin-left: 20px;">
         <li>Gabriel Novais</li>
         <li>João Victor Sepulveda</li>
         <li>Pedro Henrique Lapa</li>
