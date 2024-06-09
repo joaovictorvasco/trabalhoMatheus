@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import xgboost
+from xgboost import XGBRegressor
 
 # Criando a barra superior
 st.write("""
@@ -24,7 +24,7 @@ times = ['Ath Paranaense', 'Atl Goianiense', 'Atlético Mineiro', 'Bahia', 'Bota
 # Ordenando a lista de times
 times_ordenados = sorted(times)
 
-model = xgboost.XGBRegressor()
+model = XGBRegressor()
 model.load_model('modelo.json') 
 
 with st.form(key='form'):
