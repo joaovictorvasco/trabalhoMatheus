@@ -14,7 +14,6 @@ st.sidebar.image(sidebar_logo, width=250)  # Ajuste a largura conforme necessár
 # Criando a barra superior
 # Verificando se o arquivo existe
 if os.path.exists(main_body_logo):
-    st.sidebar.image(main_body_logo, width=250)
     st.markdown(f"""
         <div style="background-color:{background_color}; padding:20px; border-radius:20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); display: flex; justify-content: center; align-items: center;">
             <h1 style="color:white; font-size: 40px; text-align:center; margin: 0;">
