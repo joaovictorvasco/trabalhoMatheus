@@ -1,5 +1,10 @@
 import streamlit as st
 import pandas as pd
+import xgboost
+
+model = XGBRegressor()
+model.load_model('modelo.json') 
+
 # Criando a barra superior
 st.write("""
     <div style="background-color:#f63366;padding:10px;border-radius:200px;">
