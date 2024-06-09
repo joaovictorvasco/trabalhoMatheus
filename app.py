@@ -79,10 +79,16 @@ with tab1:
                     - Erro Quadrático Médio (MSE): {mse:.2f}
 
                     **Considerações para Apostas:**
-                    Dada a baixa confiabilidade das previsões deste modelo, recomendamos cautela ao usar estas informações para suas decisões. Esses números devem ser vistos como estimativas, e é crucial considerar outras fontes e fatores ao tomar decisões baseadas
-
+                    Dada a baixa confiabilidade das previsões deste modelo, recomendamos cautela ao usar estas informações para suas decisões. Esses números devem ser vistos como estimativas, e é crucial considerar outras fontes e fatores ao tomar decisões baseadas nessas previsões.
+                """, unsafe_allow_html=True)
+else:
+    st.session_state.show_result = False
 
 with tab2:
     st.write("Conteúdo da Tabela aqui.")
 
+# Resetar o estado ao mudar de aba
+def on_tab_change():
+    st.session_state.show_result = False
 
+st.tabs.on_change(on_tab_change)
