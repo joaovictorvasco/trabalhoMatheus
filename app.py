@@ -52,10 +52,10 @@ with tab1:
         enviar = st.form_submit_button('Enviar')
         
         if enviar:
-            st.session_state.show_result = True
             if op_home == op_away:
                 st.error('Erro: O mesmo time não pode ser escolhido como time da casa e visitante.')
             else:
+                st.session_state.show_result = True
                 lista = [{'Home': op_home, 'Away': op_away, 'ano_x': 2024}]
                 df = pd.DataFrame(lista)
                 df['Home'] = df['Home'].astype('category')
@@ -81,8 +81,6 @@ with tab1:
                     **Considerações para Apostas:**
                     Dada a baixa confiabilidade das previsões deste modelo, recomendamos cautela ao usar estas informações para suas decisões. Esses números devem ser vistos como estimativas, e é crucial considerar outras fontes e fatores ao tomar decisões baseadas nessas previsões.
                 """, unsafe_allow_html=True)
-else:
-    st.session_state.show_result = False
 
 with tab2:
     st.write("Conteúdo da Tabela aqui.")
@@ -91,4 +89,7 @@ with tab2:
 def on_tab_change():
     st.session_state.show_result = False
 
-st.tabs.on_change(on_tab_change)
+# Adicionar um listener para mudança de abas
+# Note que Streamlit não tem um on_change direto para abas, você pode usar um hack com radio buttons se necessário
+# This is a placeholder for illustration
+st.radio("Tabs", ["Jogos", "Tabela"], on_change=on_tab_change)
