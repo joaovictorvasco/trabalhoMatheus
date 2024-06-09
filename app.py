@@ -130,7 +130,7 @@ with tab2:
         tabela_df = tabela_df[cols]
         
         # Ajustar o estilo da tabela para ocupar mais espaço
-        st.dataframe(tabela_df, height=800, width=1200)  # Ajuste a altura e largura conforme necessário
+        st.dataframe(tabela_df, height=700, width=1400)  # Ajuste a altura e largura conforme necessário
     else:
         st.write("Tabela não encontrada.")
 # Resetar o estado ao mudar de aba
