@@ -173,9 +173,13 @@ with tab3:
         if fixtures_html:
             fixtures_df = pd.read_html(str(fixtures_html))[0]
 
+            # Convertendo a coluna de datas para datetime
+            fixtures_df['Date'] = pd.to_datetime(fixtures_df['Date'], errors='coerce')
+
             # Filtrar os próximos jogos do time selecionado
-            proximos_jogos = fixtures_df[(fixtures_df['Home'] == time_selecionado) | (fixtures_df['Away'] == time_selecionado)]
-            proximos_jogos = proximos_jogos.head(5)  # Selecionar os próximos 5 jogos
+            today = datetime.today()
+            proximos_jogos = fixtures_df[((fixtures_df['Home'] == time_selecionado) | (fixtures_df['Away'] == time_selecionado)) & (fixtures_df['Date'] >= today)]
+            proximos_jogos = proximos_jogos.sort_values(by='Date').head(5)  # Ordenar por data e selecionar os próximos 5 jogos
 
             st.write(f"Próximos 5 jogos do {time_selecionado}")
             st.dataframe(proximos_jogos)
