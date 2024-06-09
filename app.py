@@ -23,7 +23,7 @@ st.markdown(f"""
 
 # Main content
 st.markdown("""
-    <h2 style="font-size:28px;">Nosso aplicativo utiliza um modelo estatístico para prever o número de cartões em partidas de futebol.</h2>
+    <h2 style="font-size:28px;">Nosso aplicativo utiliza um modelo estatístico para prever o número de cartões em uma determinada partida do Campeonato Brasileiro de 2024.</h2>
 """, unsafe_allow_html=True)
 
 st.markdown("""
