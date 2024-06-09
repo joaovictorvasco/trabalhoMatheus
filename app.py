@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 # Criando a barra superior
 st.write("""
     <div style="background-color:#f63366;padding:10px;border-radius:200px;">
@@ -21,7 +22,13 @@ times = ['Ath Paranaense', 'Atl Goianiense', 'Atlético Mineiro', 'Bahia', 'Bota
 # Ordenando a lista de times
 times_ordenados = sorted(times)
 
-op_home = st.selectbox('Escolha uma opção p/ time da casa', times_ordenados)
-op_away = st.selectbox('Escolha outra opção p/ time visitante', times_ordenados)
+with st.form(key='form):
+    op_home = st.selectbox('Escolha uma opção p/ time da casa', times_ordenados)
+    op_away = st.selectbox('Escolha outra opção p/ time visitante', times_ordenados)
+    enviar = st.form_submit_button('Enviar')
 
+if enviar:
+    lista = [{'Home': op_home, 'Away': op_away, 'ano': 2024}]
+    df = pd.Dataframe(lista)
+    resultado = modelo.predict(df)
 
