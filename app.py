@@ -123,7 +123,7 @@ with tab2:
             'Rk': 'Classificação'
         })
         # Remover o índice
-        tabela_df = tabela_df.set_index('Classificação')  # Definir a coluna 'Rk' como índice
+        tabela_df = tabela_df.set_index('Classificação')
         
         # Reordenar as colunas para que 'Time' e 'Pontos' sejam as primeiras
         cols = ['Time', 'Pontos'] + [col for col in tabela_df.columns if col not in ['Time', 'Pontos']]
