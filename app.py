@@ -117,8 +117,8 @@ with tab2:
             'GA': 'Gols Sofridos',
             'GD': 'Saldo de Gols',
             'Pts': 'Pontos',
-            'Last 5': 'Desempenho'
-            'Squad': 'Time',
+            'Last 5': 'Desempenho',
+            'Squad': 'Clube',
             'Rk': 'Classificação'
         })
 
