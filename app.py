@@ -171,10 +171,18 @@ with tab3:
         time.sleep(5)  # Pausa de 5 segundos entre as requisições
         soup = BeautifulSoup(response.text, 'html.parser')
 
+        # Debugging: Verificar se a resposta foi recebida corretamente
+        st.write("Status da resposta:", response.status_code)
+        
+        # Debugging: Exibir um trecho do HTML para verificar se a página foi carregada corretamente
+        st.write("Trecho do HTML:", soup.prettify()[:1000])
+        
         # Encontrar a tabela de fixtures
         fixtures_html = soup.find('table', {'id': 'sched_2024_24_1'})
-
+        
+        # Debugging: Verificar se a tabela foi encontrada
         if fixtures_html:
+            st.write("Tabela de fixtures encontrada.")
             fixtures_df = pd.read_html(str(fixtures_html))[0]
 
             # Verificar os nomes das colunas
@@ -194,7 +202,6 @@ with tab3:
             st.write("Tabela de fixtures não encontrada.")
     else:
         st.write("Por favor, selecione um time para ver os próximos jogos.")
-    
             
 # Resetar o estado ao mudar de aba
 def on_tab_change():
