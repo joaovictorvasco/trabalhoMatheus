@@ -37,5 +37,5 @@ if enviar:
     lista = [{'Home': op_home, 'Away': op_away, 'ano': 2024}]
     df = pd.Dataframe(lista)
     resultado = model.predict(df)
-    np.round(resultado, 0)
+    st.write(np.round(resultado, 0))
 
