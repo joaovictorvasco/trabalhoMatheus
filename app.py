@@ -96,7 +96,7 @@ with tab2:
     soup = BeautifulSoup(response.text, 'html.parser')
 
     # Encontrar a tabela
-    tabela_html = soup.find('table', {'id': 'results2023-2024'})
+    tabela_html = soup.find('table', {'id': 'switcher_results2024241'})
 
     # Ler a tabela HTML com pandas
     if tabela_html:
