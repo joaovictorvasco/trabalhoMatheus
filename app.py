@@ -88,7 +88,7 @@ with tab1:
                     **Considerações para Apostas:**
                     Dada a baixa confiabilidade das previsões deste modelo, recomendamos cautela ao usar estas informações para suas decisões. Esses números devem ser vistos como estimativas, e é crucial considerar outras fontes e fatores ao tomar decisões baseadas nessas previsões.
                 """, unsafe_allow_html=True)
-
+                
 with tab2:
     st.write("### Tabela do Brasileirão 2024")
     
@@ -103,9 +103,10 @@ with tab2:
     # Ler a tabela HTML com pandas
     if tabela_html:
         tabela_df = pd.read_html(str(tabela_html))[0]
-        st.dataframe(tabela_df)
+        st.dataframe(tabela_df, index=False)
     else:
         st.write("Tabela não encontrada.")
+
 
 # Resetar o estado ao mudar de aba
 def on_tab_change():
