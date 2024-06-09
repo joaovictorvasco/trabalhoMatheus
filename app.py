@@ -11,7 +11,7 @@ background_color = "#0a1931"
 # Para exibir um logo na barra lateral, primeiro, chamamos st.sidebar para operações na barra lateral
 st.sidebar.image(sidebar_logo, width=250)  # Ajuste a largura conforme necessário
 
-st.image(main_logo, width=2000)  # Ajuste a largura conforme necessário
+st.image(main_logo, width=1000)  # Ajuste a largura conforme necessário
 
 # Criando a barra superior com um fundo colorido
 st.markdown(f"""
