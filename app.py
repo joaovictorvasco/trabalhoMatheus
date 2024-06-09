@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import xgboost
+from xgboost import XGBRegressor
 
 model = XGBRegressor()
 model.load_model('modelo.json') 
