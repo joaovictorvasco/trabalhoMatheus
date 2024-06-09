@@ -103,7 +103,27 @@ with tab2:
     # Ler a tabela HTML com pandas
     if tabela_html:
         tabela_df = pd.read_html(str(tabela_html))[0]
+
+        # Remover o índice
         tabela_df = tabela_df.set_index('Rk')  # Definir a coluna 'Rk' como índice
+
+        # Renomear as colunas conforme solicitado
+        tabela_df = tabela_df.rename(columns={
+            'MP': 'Partidas',
+            'W': 'V',
+            'D': 'E',
+            'L': 'D',
+            'GF': 'Gols Pró',
+            'GA': 'Gols Sofridos',
+            'GD': 'Saldo de Gols',
+            'Pts': 'Pontos',
+            'Last 5': 'Desempenho'
+        })
+
+        # Reordenar as colunas para que 'Pontos' seja a primeira
+        cols = ['Pontos'] + [col for col in tabela_df.columns if col != 'Pontos']
+        tabela_df = tabela_df[cols]
+
         st.dataframe(tabela_df)
     else:
         st.write("Tabela não encontrada.")
