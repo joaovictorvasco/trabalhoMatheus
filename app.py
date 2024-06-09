@@ -103,7 +103,8 @@ with tab2:
     # Ler a tabela HTML com pandas
     if tabela_html:
         tabela_df = pd.read_html(str(tabela_html))[0]
-        st.dataframe(tabela_df, index=False)
+        tabela_df = tabela_df.reset_index(drop=True)  # Remover o índice
+        st.dataframe(tabela_df)
     else:
         st.write("Tabela não encontrada.")
 
