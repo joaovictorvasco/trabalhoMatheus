@@ -27,7 +27,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("""
-    <h2 style="font-size:24px;">Abaixo você pode colocar o confronto desejado para saber, de acordo com nosso modelo, qual é a predição de cartões para essa partida.</h2>
+    <h2 style="font-size:18px;">Abaixo você pode colocar o confronto desejado para saber, de acordo com nosso modelo, qual é a predição de cartões para essa partida.</h2>
 """, unsafe_allow_html=True)
 
 # Tabs for content
