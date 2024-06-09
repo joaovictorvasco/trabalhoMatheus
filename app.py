@@ -103,7 +103,9 @@ with tab2:
     # Ler a tabela HTML com pandas
     if tabela_html:
         tabela_df = pd.read_html(str(tabela_html))[0]
-
+        
+        # Exibir os nomes das colunas para verificação
+        st.write("Nomes das colunas originais:", tabela_df.columns.tolist())
         # Remover o índice
         tabela_df = tabela_df.set_index('Rk')  # Definir a coluna 'Rk' como índice
 
