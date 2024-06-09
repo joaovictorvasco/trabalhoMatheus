@@ -153,7 +153,7 @@ with tab2:
         # Ajustar o estilo da tabela para ocupar mais espaço
         st.dataframe(tabela_df, height=750, use_container_width=True)  # Ajuste a altura e largura conforme necessário
     else:
-        st.write("Tabela não encontrada.")]
+        st.write("Tabela não encontrada.")
 
 with tab3:
     st.write("### Próximos 5 Jogos do Time")
