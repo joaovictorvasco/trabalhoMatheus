@@ -55,18 +55,28 @@ with tab1:
         op_away = st.selectbox('Escolha outra opção p/ time visitante', times_ordenados)
         enviar = st.form_submit_button('Enviar')
     
-    if enviar:
-        if op_home == op_away:
-            st.error('Erro: O mesmo time não pode ser escolhido como time da casa e visitante.')
-        else:
-            lista = [{'Home': op_home, 'Away': op_away, 'ano_x': 2024}]
-            df = pd.DataFrame(lista)
-            df['Home'] = df['Home'].astype('category')
-            df['Away'] = df['Away'].astype('category')
-            model = XGBRegressor()
-            model.load_model('modelo.json') 
-            resultado = model.predict(df)
-            st.metric('Nº de cartões predito', int(np.round(resultado[0], 0)))
+if enviar:
+    if op_home == op_away:
+        st.error('Erro: O mesmo time não pode ser escolhido como time da casa e visitante.')
+    else:
+        lista = [{'Home': op_home, 'Away': op_away, 'ano_x': 2024}]
+        df = pd.DataFrame(lista)
+        df['Home'] = df['Home'].astype('category')
+        df['Away'] = df['Away'].astype('category')
+        model = XGBRegressor()
+        model.load_model('modelo.json') 
+        resultado = model.predict(df)
+        
+        # Suponha que 'resultado' retorna um número total de cartões
+        st.markdown(f"""
+            ### Previsão de Cartões para a Partida
+            **Confronto:** {op_home} vs {op_away}
+            **Previsão de Cartões Total:** {int(np.round(resultado[0], 0))}
+
+            Essa previsão é baseada em dados históricos e padrões observados em partidas anteriores. 
+            O número inclui tanto cartões amarelos quanto vermelhos previstos para acontecer durante o jogo.
+        """)
+
 
 with tab2:
     st.write("Conteúdo da Tabela aqui.")
