@@ -13,9 +13,10 @@ st.write("""
 
 tab_jogos = st.tabs(['Jogos'])
 
-option = st.selectbox(
-    "Escolha o time mandante",
-    ("Ath Paranaense", "Atl Goianiense", "Atlético Mineiro", ))
+times = set(['Ath Paranaense', 'Atl Goianiense', 'Atlético Mineiro', 'Bahia', 'Botafogo (RJ)', 'Corinthians', 'Criciúma', 'Cruzeiro', 'Cuiabá', 'Flamengo', 'Fluminense', 'Fortaleza', 'Grêmio', 'Internacional', 'Juventude', 'Palmeiras', 'Red Bull Bragantino', 'São Paulo', 'Vasco da Gama', 'Vitória'])
+
+op_home = st.selectbox('Escolha uma opção p/ time da casa', times)
+op_away = st.selectbox('Escolha outra opção p/ time visitante', times)
 
 st.write("""
     <div style="position: absolute; top: 10px; left: 10px;">
