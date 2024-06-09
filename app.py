@@ -103,7 +103,7 @@ with tab2:
     # Ler a tabela HTML com pandas
     if tabela_html:
         tabela_df = pd.read_html(str(tabela_html))[0]
-        tabela_df = tabela_df.reset_index(drop=True)  # Remover o índice
+        tabela_df = tabela_df.set_index('Rk')  # Definir a coluna 'Rk' como índice
         st.dataframe(tabela_df)
     else:
         st.write("Tabela não encontrada.")
