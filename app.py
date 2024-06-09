@@ -6,6 +6,8 @@ from xgboost import XGBRegressor
 import numpy as np
 import requests
 from bs4 import BeautifulSoup
+from datetime import datetime
+import time
 
 # Inicializando o estado da sessão para controlar a visibilidade da resposta
 if 'show_result' not in st.session_state:
@@ -115,8 +117,9 @@ with tab2:
     # Raspar a tabela do Brasileirão do site fbref
     url = "https://fbref.com/en/comps/24/Serie-A-Stats"
     response = requests.get(url)
+    time.sleep(5)  # Pausa de 5 segundos entre as requisições
     soup = BeautifulSoup(response.text, 'html.parser')
-
+    
     # Encontrar a tabela com o ID específico
     tabela_html = soup.find('table', {'id': 'results2024241_overall'})
 
@@ -165,6 +168,7 @@ with tab3:
         # Raspar os dados dos próximos jogos
         url_fixtures = "https://fbref.com/en/comps/24/schedule/Serie-A-Scores-and-Fixtures"
         response = requests.get(url_fixtures)
+        time.sleep(5)  # Pausa de 5 segundos entre as requisições
         soup = BeautifulSoup(response.text, 'html.parser')
 
         # Encontrar a tabela de fixtures
@@ -190,7 +194,6 @@ with tab3:
             st.write("Tabela de fixtures não encontrada.")
     else:
         st.write("Por favor, selecione um time para ver os próximos jogos.")
-
             
 # Resetar o estado ao mudar de aba
 def on_tab_change():
