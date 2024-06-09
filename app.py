@@ -126,14 +126,10 @@ with tab2:
             'Rk': 'Classificação'
         })
         
-        # Selecionar apenas as colunas necessárias
-        cols_to_keep = ['Classificação', 'Time', 'Partidas', 'V', 'E', 'D', 'Gols Pró', 'Gols Sofridos', 'Saldo de Gols', 'Pontos', 'Desempenho']
-        tabela_df = tabela_df[cols_to_keep]
-
         # Reordenar as colunas para que 'Time' e 'Pontos' sejam as primeiras
         cols = ['Time', 'Pontos'] + [col for col in tabela_df.columns if col not in ['Time', 'Pontos']]
         tabela_df = tabela_df[cols]
-
+        
         st.dataframe(tabela_df)
     else:
         st.write("Tabela não encontrada.")
