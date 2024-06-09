@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from xgboost import XGBRegressor
+import numpy as np
 
 # Criando a barra superior
 st.write("""
