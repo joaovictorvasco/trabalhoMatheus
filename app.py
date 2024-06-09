@@ -173,6 +173,9 @@ with tab3:
         if fixtures_html:
             fixtures_df = pd.read_html(str(fixtures_html))[0]
 
+            # Verificar os nomes das colunas
+            st.write("Nomes das colunas da tabela de fixtures:", fixtures_df.columns.tolist())
+
             # Convertendo a coluna de datas para datetime
             fixtures_df['Date'] = pd.to_datetime(fixtures_df['Date'], errors='coerce')
 
@@ -185,7 +188,10 @@ with tab3:
             st.dataframe(proximos_jogos)
         else:
             st.write("Tabela de fixtures não encontrada.")
+    else:
+        st.write("Por favor, selecione um time para ver os próximos jogos.")
 
+            
 # Resetar o estado ao mudar de aba
 def on_tab_change():
     st.session_state.show_result = False
