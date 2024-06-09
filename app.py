@@ -112,8 +112,3 @@ with tab2:
 def on_tab_change():
     st.session_state.show_result = False
 
-# Adicionar um listener para mudança de abas
-# Note que Streamlit não tem um on_change direto para abas, você pode usar um hack com radio buttons se necessário
-# This is a placeholder for illustration
-st.radio("Tabs", ["Jogos", "Tabela"], on_change=on_tab_change)
-
