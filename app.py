@@ -67,15 +67,17 @@ if enviar:
         model.load_model('modelo.json') 
         resultado = model.predict(df)
         
-        # Suponha que 'resultado' retorna um número total de cartões
         st.markdown(f"""
             ### Previsão de Cartões para a Partida
             **Confronto:** {op_home} vs {op_away}
             **Previsão de Cartões Total:** {int(np.round(resultado[0], 0))}
+            **Precisão do Modelo:** O valor de \( R^2 \) reportado é 2, indicando um possível erro de cálculo ou interpretação.
+            
+            **Considerações para Apostas:**
+            Recomendamos cautela ao usar estas previsões para apostas ou decisões críticas. Considere este número como uma estimativa e não como uma certeza absoluta. A análise estatística pode fornecer insights valiosos, mas sempre envolve algum grau de incerteza.
 
-            Essa previsão é baseada em dados históricos e padrões observados em partidas anteriores. 
-            O número inclui tanto cartões amarelos quanto vermelhos previstos para acontecer durante o jogo.
-        """)
+            Avalie outras fontes e use seu julgamento ao tomar decisões baseadas nestas informações.
+        """, unsafe_allow_html=True)
 
 
 with tab2:
