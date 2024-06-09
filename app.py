@@ -17,7 +17,7 @@ st.image(main_logo, width=700, use_column_width=True)
 # Creating a colored top bar
 st.markdown(f"""
     <div style="background-color:{background_color}; padding:15px; border-radius:10px; box-shadow: 0 16px 8px 0 rgba(0, 0, 0, 0.2);">
-        <h1 style="color:white; font-size:50px; text-align:center;">Fortune Card</h1>
+        <h1 style="color:yellow; font-size:50px; text-align:center;">Fortune Card</h1>
     </div>
 """, unsafe_allow_html=True)
 
