@@ -24,8 +24,4 @@ times_ordenados = sorted(times)
 op_home = st.selectbox('Escolha uma opção p/ time da casa', times_ordenados)
 op_away = st.selectbox('Escolha outra opção p/ time visitante', times_ordenados)
 
-st.write("""
-    <div style="position: absolute; top: 10px; left: 10px;">
-        <img src="https://www.google.com/search?q=juiz+futebol+desenho&sca_esv=69d501c9217a3f8b&sca_upv=1&rlz=1C1GCEU_pt-BRBR1111&udm=2&biw=1920&bih=945&sxsrf=ADLYWIIkRe0HYgUAPCRxUgRz9UfITAirlA%3A1716402598437&ei=pjlOZqGeGsrc1sQPoPivuAY&oq=juiz+futebol+dese&gs_lp=Egxnd3Mtd2l6LXNlcnAiEWp1aXogZnV0ZWJvbCBkZXNlKgIIADIFEAAYgAQyBhAAGAgYHkiWFVCgBVieCXABeACQAQCYAXmgAcYEqgEDMC41uAEByAEA-AEBmAIGoALWBMICChAAGIAEGEMYigXCAgQQABgemAMAiAYBkgcDMS41oAfNEQ&sclient=gws-wiz-serp#vhid=OPV06zbO3RGmwM&vssid=mosaic" style="width: 100px;">
-    </div>
-""", unsafe_allow_html=True)
+
