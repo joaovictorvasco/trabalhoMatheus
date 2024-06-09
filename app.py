@@ -22,9 +22,10 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # Main content
-st.write("""
-    # Nosso app serve para prever estatisticamente o número de cartões numa determinada partida
-""")
+st.markdown("""
+    <h2 style="font-size:24px;">Nosso app serve para prever estatisticamente o número de cartões numa determinada partida</h2>
+""", unsafe_allow_html=True)
+
 
 # Tabs for content
 tab1, tab2 = st.tabs(["Jogos", "Tabela"])
