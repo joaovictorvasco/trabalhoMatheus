@@ -26,6 +26,9 @@ st.markdown("""
     <h2 style="font-size:28px;">Nosso app serve para prever estatisticamente o número de cartões numa determinada partida</h2>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+    <h2 style="font-size:24px;">Abaixo você pode colocar o confronto desejado para saber, de acordo com nosso modelo, qual é a predição de cartões para essa partida.</h2>
+""", unsafe_allow_html=True)
 
 # Tabs for content
 tab1, tab2 = st.tabs(["Jogos", "Tabela"])
