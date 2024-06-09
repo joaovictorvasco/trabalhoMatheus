@@ -11,6 +11,12 @@ background_color = "#0a1931"
 # Sidebar logo display
 st.sidebar.image(sidebar_logo, width=250)
 
+st.sidebar.write("""
+    Aplicativo desenvolvido por:
+    - Gabriel Novais
+    - João Victor Sepulveda
+    - Pedro Henrique Lapa
+""")
 # Main logo display, centered
 st.image(main_logo, width=700, use_column_width=True)
 
