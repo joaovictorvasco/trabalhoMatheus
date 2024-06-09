@@ -64,23 +64,27 @@ if enviar:
         df['Home'] = df['Home'].astype('category')
         df['Away'] = df['Away'].astype('category')
         model = XGBRegressor()
-        model.load_model('modelo.json') 
-        resultado = model.predict(df)
+        model.load_model('modelo.json')
+        ypred = model.predict(df)
         
+        # Dados de exemplo dos resultados do modelo
+        r2 = -0.0608767415057232
+        mae = 2.1616382956885682
+        mse = 7.511824680006472
+
         st.markdown(f"""
             ### Previsão de Cartões para a Partida
             **Confronto:** {op_home} vs {op_away}
-            **Previsão de Cartões Total:** {int(np.round(resultado[0], 0))}
-        
+            **Previsão de Cartões Total:** {int(np.round(ypred[0], 0))}
+
             **Precisão do Modelo:**
             - \( R^2 \): {r2:.2f} (Um valor negativo indica que o modelo não tem poder preditivo adequado.)
             - Erro Absoluto Médio (MAE): {mae:.2f}
             - Erro Quadrático Médio (MSE): {mse:.2f}
-        
+
             **Considerações para Apostas:**
             Dada a baixa confiabilidade das previsões deste modelo, recomendamos cautela ao usar estas informações para decisões críticas. Esses números devem ser vistos como estimativas, e é crucial considerar outras fontes e fatores ao tomar decisões baseadas nessas previsões.
         """, unsafe_allow_html=True)
-
 
 
 with tab2:
