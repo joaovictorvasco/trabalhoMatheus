@@ -11,10 +11,14 @@ st.sidebar.image(sidebar_logo, width=250)  # Ajuste a largura conforme necessár
 
 # Criando a barra superior
 st.markdown(f"""
-    <div style="background-color:#f63366;padding:10px;border-radius:200px;">
-        <h1 style="color:white;text-align:center;"><img src="{main_body_logo}" alt="logo" style="height:50px;"> Fortune Card</h1>
+    <div style="background-color:#f63366; padding:20px; border-radius:20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); display: flex; justify-content: center; align-items: center;">
+        <h1 style="color:white; font-size: 40px; text-align:center; margin: 0;">
+            <img src="{main_body_logo}" alt="logo" style="height:60px; vertical-align: middle; margin-right: 10px;">
+            Fortune Card
+        </h1>
     </div>
 """, unsafe_allow_html=True)
+
 
 # Conteúdo principal
 st.write("""
