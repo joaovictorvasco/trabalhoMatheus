@@ -4,21 +4,18 @@ from xgboost import XGBRegressor
 import numpy as np
 import os
 
-main_body_logo = "fortune.png"
 sidebar_logo = "fortune.png"
 background_color = "#0a1931"
 
 # Para exibir um logo na barra lateral, primeiro, chamamos st.sidebar para operações na barra lateral
 st.sidebar.image(sidebar_logo, width=250)  # Ajuste a largura conforme necessário
 
-# Criando a barra superior
-# Verificando se o arquivo existe
+st.image(sidebar_logo, width=200)  # Ajuste a largura conforme necessário
+
+# Criando a barra superior com um fundo colorido
 st.markdown(f"""
-    <div style="background-color:#0a1931; padding:20px; border-radius:20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); display: flex; justify-content: center; align-items: center;">
-        <h1 style="color:white; font-size: 40px; text-align:center; margin: 0;">
-            <img src="{sidebar_logo}" " style="height:60px; vertical-align: middle; margin-right: 10px;">
-            Fortune Card
-        </h1>
+    <div style="background-color:#0a1931; padding:10px; border-radius:10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
+        <h1 style="color:white; font-size:24px; text-align:center;">Fortune Card</h1>
     </div>
 """, unsafe_allow_html=True)
 
