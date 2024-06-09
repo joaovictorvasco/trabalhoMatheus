@@ -34,8 +34,10 @@ with st.form(key='form'):
     enviar = st.form_submit_button('Enviar')
 
 if enviar:
-    lista = [{'Home': op_home, 'Away': op_away, 'ano': 2024}]
-    df = pd.Dataframe(lista)
+    lista = [{'Home': op_home, 'Away': op_away, 'ano_x': 2024}]
+    df = pd.DataFrame(lista)
+    df['Home'] = df['Home'].astype('category')
+    df['Away'] = df['Away'].astype('category')
     resultado = model.predict(df)
-    st.write(np.round(resultado, 0))
 
+    st.metric('Nº de cartões predito', int(np.round(resultado[0], 0)))
