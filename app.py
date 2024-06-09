@@ -174,8 +174,8 @@ with tab3:
         return response
     
     if time_selecionado:
-        # Raspar os dados dos próximos jogos
-        url_fixtures = "https://fbref.com/en/comps/24/schedule/Serie-A-Scores-and-Fixtures"
+        # Raspar os dados dos próximos jogos da ESPN
+        url_fixtures = f"https://www.espn.com.br/futebol/time/agenda/_/id/875/{time_selecionado.replace(' ', '-').lower()}"
         response = raspar_dados_com_pausa(url_fixtures, pausa=10)
         soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -194,7 +194,7 @@ with tab3:
         st.write("IDs das tabelas encontradas:", table_ids)
         
         # Encontrar a tabela de fixtures
-        fixtures_html = soup.find('table', {'id': 'sched_2024_24_1'})
+        fixtures_html = soup.find('table')
         
         # Debugging: Verificar se a tabela foi encontrada
         if fixtures_html:
