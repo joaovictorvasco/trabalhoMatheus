@@ -83,7 +83,7 @@ if enviar:
             - Erro Quadrático Médio (MSE): {mse:.2f}
 
             **Considerações para Apostas:**
-            Dada a baixa confiabilidade das previsões deste modelo, recomendamos cautela ao usar estas informações para decisões críticas. Esses números devem ser vistos como estimativas, e é crucial considerar outras fontes e fatores ao tomar decisões baseadas nessas previsões.
+            Dada a baixa confiabilidade das previsões deste modelo, recomendamos cautela ao usar estas informações para suas decisões. Esses números devem ser vistos como estimativas, e é crucial considerar outras fontes e fatores ao tomar decisões baseadas nessas previsões.
         """, unsafe_allow_html=True)
 
 
