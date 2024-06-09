@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 from xgboost import XGBRegressor
 import numpy as np
+import requests
+from bs4 import BeautifulSoup
 
 # Inicializando o estado da sessão para controlar a visibilidade da resposta
 if 'show_result' not in st.session_state:
@@ -86,7 +88,22 @@ with tab1:
                 """, unsafe_allow_html=True)
 
 with tab2:
-    st.write("Conteúdo da Tabela aqui.")
+    st.write("### Tabela do Brasileirão 2024")
+    
+    # Raspar a tabela do Brasileirão do site fbref
+    url = "https://fbref.com/en/comps/24/Serie-A-Stats"
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    # Encontrar a tabela
+    tabela_html = soup.find('table', {'id': 'results2023-2024'})
+
+    # Ler a tabela HTML com pandas
+    if tabela_html:
+        tabela_df = pd.read_html(str(tabela_html))[0]
+        st.dataframe(tabela_df)
+    else:
+        st.write("Tabela não encontrada.")
 
 # Resetar o estado ao mudar de aba
 def on_tab_change():
