@@ -7,7 +7,7 @@ main_body_logo = "logo_fortune.png"
 sidebar_logo = "logo_fortune.png"
 
 # Para exibir um logo na barra lateral, primeiro, chamamos st.sidebar para operações na barra lateral
-st.sidebar.image(sidebar_logo, width=150)  # Ajuste a largura conforme necessário
+st.sidebar.image(sidebar_logo, width=100)  # Ajuste a largura conforme necessário
 
 # Criando a barra superior
 st.markdown(f"""
