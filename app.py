@@ -92,6 +92,21 @@ with tab1:
 with tab2:
     st.write("### Tabela do Brasileirão 2024")
     
+    # Adicionar CSS para ajustar a largura da tabela
+    st.markdown(
+        """
+        <style>
+        .css-1l269bu.e1fqkh3o3 {
+            width: 100% !important;
+        }
+        .stDataFrame div {
+            width: 100% !important;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
     # Raspar a tabela do Brasileirão do site fbref
     url = "https://fbref.com/en/comps/24/Serie-A-Stats"
     response = requests.get(url)
@@ -122,6 +137,7 @@ with tab2:
             'Squad': 'Time',
             'Rk': 'Classificação'
         })
+
         # Remover o índice
         tabela_df = tabela_df.set_index('Classificação')
         
@@ -133,6 +149,7 @@ with tab2:
         st.dataframe(tabela_df, height=750, width=2000)  # Ajuste a altura e largura conforme necessário
     else:
         st.write("Tabela não encontrada.")
+
 # Resetar o estado ao mudar de aba
 def on_tab_change():
     st.session_state.show_result = False
