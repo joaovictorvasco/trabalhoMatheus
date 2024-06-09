@@ -118,14 +118,14 @@ with tab2:
             'GD': 'Saldo de Gols',
             'Pts': 'Pontos',
             'Last 5': 'Desempenho',
-            'Squad': 'Clube',
+            'Squad': 'Time',
             'Rk': 'Classificação'
         })
 
-        # Reordenar as colunas para que 'Pontos' seja a primeira
+        # Reordenar as colunas para que 'Time' e 'Pontos' sejam as primeiras
         cols = ['Time', 'Pontos'] + [col for col in tabela_df.columns if col not in ['Time', 'Pontos']]
         tabela_df = tabela_df[cols]
-        
+
         st.dataframe(tabela_df)
     else:
         st.write("Tabela não encontrada.")
