@@ -44,7 +44,7 @@ st.markdown("""
     <h2 style="font-size:18px;">Este modelo analisa dados históricos de confrontos entre times, incluindo estatísticas de jogos anteriores, para calcular a probabilidade de cartões amarelos e vermelhos serem dados durante uma partida. Abaixo, selecione os times da casa e visitante e nosso modelo usará esses dados para prever o resultado provável em termos de cartões.</h2>
 """, unsafe_allow_html=True)
 
-tab1, tab2 = st.tabs(["Jogos", "Tabela"])
+tab1, tab2, tab3 = st.tabs(["Jogos", "Tabela", "Calendário"])
 
 with tab1:
     times = ['Ath Paranaense', 'Atl Goianiense', 'Atlético Mineiro', 'Bahia', 'Botafogo (RJ)', 
@@ -153,7 +153,34 @@ with tab2:
         # Ajustar o estilo da tabela para ocupar mais espaço
         st.dataframe(tabela_df, height=750, use_container_width=True)  # Ajuste a altura e largura conforme necessário
     else:
-        st.write("Tabela não encontrada.")
+        st.write("Tabela não encontrada.")]
+
+with tab3:
+    st.write("### Próximos 5 Jogos do Time")
+    
+    # Selecionar o time
+    time_selecionado = st.selectbox('Escolha um time', times_ordenados)
+    
+    if time_selecionado:
+        # Raspar os dados dos próximos jogos
+        url_fixtures = "https://fbref.com/en/comps/24/schedule/Serie-A-Scores-and-Fixtures"
+        response = requests.get(url_fixtures)
+        soup = BeautifulSoup(response.text, 'html.parser')
+
+        # Encontrar a tabela de fixtures
+        fixtures_html = soup.find('table', {'id': 'sched_2024_24_1'})
+
+        if fixtures_html:
+            fixtures_df = pd.read_html(str(fixtures_html))[0]
+
+            # Filtrar os próximos jogos do time selecionado
+            proximos_jogos = fixtures_df[(fixtures_df['Home'] == time_selecionado) | (fixtures_df['Away'] == time_selecionado)]
+            proximos_jogos = proximos_jogos.head(5)  # Selecionar os próximos 5 jogos
+
+            st.write(f"Próximos 5 jogos do {time_selecionado}")
+            st.dataframe(proximos_jogos)
+        else:
+            st.write("Tabela de fixtures não encontrada.")
 
 # Resetar o estado ao mudar de aba
 def on_tab_change():
