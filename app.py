@@ -23,11 +23,11 @@ st.markdown(f"""
 
 # Main content
 st.markdown("""
-    <h2 style="font-size:28px;">Nosso app serve para prever estatisticamente o número de cartões numa determinada partida</h2>
+    <h2 style="font-size:28px;"Nosso aplicativo utiliza um modelo estatístico para prever o número de cartões em partidas de futebol.</h2>
 """, unsafe_allow_html=True)
 
 st.markdown("""
-    <h2 style="font-size:18px;">Abaixo você pode colocar o confronto desejado para saber, de acordo com nosso modelo, qual é a predição de cartões para essa partida.</h2>
+    <h2 style="font-size:18px;">AEste modelo analisa dados históricos de confrontos entre times, incluindo estatísticas de jogos anteriores, para calcular a probabilidade de cartões amarelos e vermelhos serem dados durante uma partida. Abaixo, selecione os times da casa e visitante e nosso modelo usará esses dados para prever o resultado provável em termos de cartões.</h2>
 """, unsafe_allow_html=True)
 
 # Tabs for content
