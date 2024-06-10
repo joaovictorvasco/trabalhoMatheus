@@ -162,7 +162,7 @@ with tab3:
             fixtures_df = pd.read_excel('fixtures_df.xlsx', index=False)
 
             # Remover as colunas indesejadas
-        cols_to_drop = ['xG', 'Score', 'Day', 'xG.1', 'Attendance', 'Referee', 'Match Report', 'Notes']
+            cols_to_drop = ['xG', 'Score', 'Day', 'xG.1', 'Attendance', 'Referee', 'Match Report', 'Notes']
             fixtures_df = fixtures_df.drop(columns=cols_to_drop, errors='ignore')
 
             # Renomear as colunas conforme solicitado
