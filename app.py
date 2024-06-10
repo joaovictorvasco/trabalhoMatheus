@@ -165,9 +165,10 @@ with tab3:
     time_selecionado = st.selectbox('Escolha um time', times_ordenados)
     
     if time_selecionado:
-        # Raspar os dados dos próximos jogos do GE
-        url_fixtures = "https://ge.globo.com/futebol/brasileirao-serie-a/"
-        response = raspar_dados_com_pausa(url_fixtures, pausa=10)
+        # Raspar os dados dos próximos jogos
+        url_fixtures = "https://fbref.com/en/comps/24/schedule/Serie-A-Scores-and-Fixtures"
+        response = requests.get(url_fixtures)
+        time.sleep(5)  # Pausa de 5 segundos entre as requisições
         soup = BeautifulSoup(response.text, 'html.parser')
 
         # Debugging: Verificar se a resposta foi recebida corretamente
@@ -177,15 +178,12 @@ with tab3:
         st.write("Trecho do HTML:", soup.prettify()[:1000])
         
         # Encontrar a tabela de fixtures
-        fixtures_html = soup.find('table')
+        fixtures_html = soup.find('table', {'id': 'sched_2024_24_1'})
         
         # Debugging: Verificar se a tabela foi encontrada
         if fixtures_html:
             st.write("Tabela de fixtures encontrada.")
             fixtures_df = pd.read_html(str(fixtures_html))[0]
-
-            # Verificar os nomes das colunas
-            st.write("Nomes das colunas da tabela de fixtures:", fixtures_df.columns.tolist())
 
             # Remover as colunas indesejadas
             cols_to_drop = ['xG', 'Score', 'Day', 'xG.1']
@@ -204,15 +202,13 @@ with tab3:
 
             # Filtrar os próximos jogos do time selecionado
             today = datetime.today()
-            proximos_jogos = fixtures_df[((fixtures_df['Casa'] == time_selecionado) | (fixtures_df['Fora'] == time_selecionado)) & (fixtures_df['Date'] >= today)]
+            proximos_jogos = fixtures_df[((fixtures_df['Home'] == time_selecionado) | (fixtures_df['Away'] == time_selecionado)) & (fixtures_df['Date'] >= today)]
             proximos_jogos = proximos_jogos.sort_values(by='Date').head(5)  # Ordenar por data e selecionar os próximos 5 jogos
 
             st.write(f"Próximos 5 jogos do {time_selecionado}")
             st.dataframe(proximos_jogos)
         else:
             st.write("Tabela de fixtures não encontrada.")
-    else:
-        st.write("Por favor, selecione um time para ver os próximos jogos.")
             
 # Resetar o estado ao mudar de aba
 def on_tab_change():
