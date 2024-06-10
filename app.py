@@ -169,7 +169,7 @@ with tab3:
             fixtures_df = pd.read_excel('fixtures_df.xlsx')
 
             # Remover as colunas indesejadas
-            cols_to_drop = ['xG', 'Score', 'Day', 'xG.1']
+        cols_to_drop = ['xG', 'Score', 'Day', 'xG.1', 'Attendance', 'Referee', 'Match Report', 'Notes']
             fixtures_df = fixtures_df.drop(columns=cols_to_drop, errors='ignore')
 
             # Renomear as colunas conforme solicitado
@@ -177,7 +177,8 @@ with tab3:
                 'Wk': 'Rodada',
                 'Time': 'Hora',
                 'Home': 'Casa',
-                'Away': 'Fora'
+                'Away': 'Fora',
+                'Venue': 'Estádio'
             })
 
             # Convertendo a coluna de datas para datetime
