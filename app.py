@@ -166,7 +166,7 @@ with tab3:
     
     if time_selecionado:
         
-            fixtures_df = pd.read_excel('fixtures_df.xlsx')
+            fixtures_df = pd.read_excel('fixtures_df.xlsx', index=False)
 
             # Remover as colunas indesejadas
         cols_to_drop = ['xG', 'Score', 'Day', 'xG.1', 'Attendance', 'Referee', 'Match Report', 'Notes']
