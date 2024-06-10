@@ -165,18 +165,8 @@ with tab3:
     time_selecionado = st.selectbox('Escolha um time', times_ordenados)
     
     if time_selecionado:
-        # Raspar os dados dos próximos jogos
-        url_fixtures = "https://fbref.com/en/comps/24/schedule/Serie-A-Scores-and-Fixtures"
-        response = requests.get(url_fixtures)
-        time.sleep(5)  # Pausa de 5 segundos entre as requisições
-        soup = BeautifulSoup(response.text, 'html.parser')
-
-        # Encontrar a tabela de fixtures
-        fixtures_html = soup.find('table', {'id': 'sched_2024_24_1'})
         
-        # Debugging: Verificar se a tabela foi encontrada
-        if fixtures_html:
-            fixtures_df = pd.read_html(str(fixtures_html))[0]
+            fixtures_df = pd.read_excel('fixtures_df.xlsx')
 
             # Remover as colunas indesejadas
             cols_to_drop = ['xG', 'Score', 'Day', 'xG.1']
@@ -200,8 +190,6 @@ with tab3:
 
             st.write(f"Próximos 5 jogos do {time_selecionado}")
             st.dataframe(proximos_jogos)
-        else:
-            st.write("Tabela de fixtures não encontrada.")
             
 # Resetar o estado ao mudar de aba
 def on_tab_change():
