@@ -182,7 +182,7 @@ with tab3:
 
             # Filtrar os próximos jogos do time selecionado
             today = datetime.today().strftime('%d/%m/%Y')
-            fixtures_df['Data'] = pd.to_datetime(fixtures_df['Data'], format='%d/%m/%Y')
+            fixtures_df['Data'] = fixtures_df['Data'].dt.strftime('%d/%m/%Y')
             proximos_jogos = fixtures_df[((fixtures_df['Casa'] == time_selecionado) | (fixtures_df['Fora'] == time_selecionado)) & (fixtures_df['Data'] >= pd.to_datetime(today, format='%d/%m/%Y'))]
             proximos_jogos = proximos_jogos.sort_values(by='Data').head(5)  # Ordenar por data e selecionar os próximos 5 jogos
 
