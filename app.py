@@ -163,38 +163,22 @@ with tab3:
     
     # Selecionar o time
     time_selecionado = st.selectbox('Escolha um time', times_ordenados)
-
-    # Função para raspar dados com pausa
-    def raspar_dados_com_pausa(url, pausa=10):
-        response = requests.get(url)
-        if response.status_code == 429:
-            st.write("Limite de requisições atingido. Aguardando...")
-            time.sleep(pausa)
-            response = requests.get(url)
-        return response
     
     if time_selecionado:
-        # Raspar os dados dos próximos jogos da ESPN
-        url_fixtures = f"https://www.espn.com.br/futebol/time/agenda/_/id/875/{time_selecionado.replace(' ', '-').lower()}"
-        response = raspar_dados_com_pausa(url_fixtures, pausa=10)
+        # Raspar os dados dos próximos jogos
+        url_fixtures = "https://fbref.com/en/comps/24/schedule/Serie-A-Scores-and-Fixtures"
+        response = requests.get(url_fixtures)
+        time.sleep(5)  # Pausa de 5 segundos entre as requisições
         soup = BeautifulSoup(response.text, 'html.parser')
 
         # Debugging: Verificar se a resposta foi recebida corretamente
         st.write("Status da resposta:", response.status_code)
         
         # Debugging: Exibir um trecho do HTML para verificar se a página foi carregada corretamente
-        st.write("Trecho do HTML:", soup.prettify()[:2000])  # Exibir mais do HTML para depuração
-        
-        # Procurar por todas as tabelas para verificar se a tabela de fixtures está presente
-        all_tables = soup.find_all('table')
-        st.write("Número de tabelas encontradas:", len(all_tables))
-        
-        # Debugging: Listar os IDs das tabelas encontradas
-        table_ids = [table.get('id') for table in all_tables]
-        st.write("IDs das tabelas encontradas:", table_ids)
+        st.write("Trecho do HTML:", soup.prettify()[:1000])
         
         # Encontrar a tabela de fixtures
-        fixtures_html = soup.find('table')
+        fixtures_html = soup.find('table', {'id': 'sched_2024_24_1'})
         
         # Debugging: Verificar se a tabela foi encontrada
         if fixtures_html:
@@ -216,8 +200,6 @@ with tab3:
             st.dataframe(proximos_jogos)
         else:
             st.write("Tabela de fixtures não encontrada.")
-    else:
-        st.write("Por favor, selecione um time para ver os próximos jogos.")
             
 # Resetar o estado ao mudar de aba
 def on_tab_change():
