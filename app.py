@@ -159,12 +159,12 @@ with tab3:
     
     if time_selecionado:
         
-            fixtures_df = pd.read_excel('fixtures_df.xlsx', index=False)
+            fixtures_df = pd.read_excel('fixtures_df.xlsx')
 
             # Remover as colunas indesejadas
             cols_to_drop = ['xG', 'Score', 'Day', 'xG.1', 'Attendance', 'Referee', 'Match Report', 'Notes']
             fixtures_df = fixtures_df.drop(columns=cols_to_drop, errors='ignore')
-
+            fixtures_df = fixtures_df.set_index('Wk')
             # Renomear as colunas conforme solicitado
             fixtures_df = fixtures_df.rename(columns={
                 'Wk': 'Rodada',
