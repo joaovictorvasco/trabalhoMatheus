@@ -171,18 +171,11 @@ with tab3:
         time.sleep(5)  # Pausa de 5 segundos entre as requisições
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        # Debugging: Verificar se a resposta foi recebida corretamente
-        st.write("Status da resposta:", response.status_code)
-        
-        # Debugging: Exibir um trecho do HTML para verificar se a página foi carregada corretamente
-        st.write("Trecho do HTML:", soup.prettify()[:1000])
-        
         # Encontrar a tabela de fixtures
         fixtures_html = soup.find('table', {'id': 'sched_2024_24_1'})
         
         # Debugging: Verificar se a tabela foi encontrada
         if fixtures_html:
-            st.write("Tabela de fixtures encontrada.")
             fixtures_df = pd.read_html(str(fixtures_html))[0]
 
             # Remover as colunas indesejadas
@@ -202,7 +195,7 @@ with tab3:
 
             # Filtrar os próximos jogos do time selecionado
             today = datetime.today()
-            proximos_jogos = fixtures_df[((fixtures_df['Home'] == time_selecionado) | (fixtures_df['Away'] == time_selecionado)) & (fixtures_df['Date'] >= today)]
+            proximos_jogos = fixtures_df[((fixtures_df['Casa'] == time_selecionado) | (fixtures_df['Fora'] == time_selecionado)) & (fixtures_df['Date'] >= today)]
             proximos_jogos = proximos_jogos.sort_values(by='Date').head(5)  # Ordenar por data e selecionar os próximos 5 jogos
 
             st.write(f"Próximos 5 jogos do {time_selecionado}")
