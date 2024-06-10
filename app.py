@@ -175,19 +175,20 @@ with tab3:
                 'Venue': 'Estádio'
             })
 
-            fixtures_df['Data'] = pd.to_datetime(fixtures_df['Data'], errors='coerce')
+          # Convertendo a coluna de datas para datetime
+          fixtures_df['Data'] = pd.to_datetime(fixtures_df['Data'], errors='coerce')
         
-            # Formatar a coluna de datas no formato DD/MM/YYYY
-            fixtures_df['Data'] = fixtures_df['Data'].dt.strftime('%d/%m/%Y')
+          # Filtrar os próximos jogos do time selecionado
+          today = datetime.today()
+          proximos_jogos = fixtures_df[((fixtures_df['Casa'] == time_selecionado) | (fixtures_df['Fora'] == time_selecionado)) & (fixtures_df['Data'] >= today)]
+          proximos_jogos = proximos_jogos.sort_values(by='Data').head(5)  # Ordenar por data e selecionar os próximos 5 jogos
 
-            # Filtrar os próximos jogos do time selecionado
-            today = datetime.today().strftime('%d/%m/%Y')
-            fixtures_df['Data'] = fixtures_df['Data'].dt.strftime('%d/%m/%Y')
-            proximos_jogos = fixtures_df[((fixtures_df['Casa'] == time_selecionado) | (fixtures_df['Fora'] == time_selecionado)) & (fixtures_df['Data'] >= pd.to_datetime(today, format='%d/%m/%Y'))]
-            proximos_jogos = proximos_jogos.sort_values(by='Data').head(5)  # Ordenar por data e selecionar os próximos 5 jogos
+          # Formatar a coluna de datas no formato DD/MM/YYYY para exibição
+          proximos_jogos['Data'] = proximos_jogos['Data'].dt.strftime('%d/%m/%Y')
 
-            st.write(f"Próximos 5 jogos do {time_selecionado}")
-            st.dataframe(proximos_jogos)
+          st.write(f"Próximos 5 jogos do {time_selecionado}")
+          st.dataframe(proximos_jogos)
+
 # Resetar o estado ao mudar de aba
 def on_tab_change():
     st.session_state.show_result = False
