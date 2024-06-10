@@ -176,6 +176,8 @@ with tab3:
 
             # Convertendo a coluna de datas para datetime
             fixtures_df['Date'] = pd.to_datetime(fixtures_df['Date'], errors='coerce')
+        
+            fixtures_df['Date'] = fixtures_df['Date'].dt.strftime('%d/%m/%Y')
 
             # Filtrar os próximos jogos do time selecionado
             today = datetime.today()
