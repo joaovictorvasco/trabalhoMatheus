@@ -13,7 +13,7 @@ import time
 if 'show_result' not in st.session_state:
     st.session_state.show_result = False
 
-sidebar_logo = "fortune.png"
+sidebar_logo = "logo_fortune.png"
 main_logo = "logo_horizontal.jpg"
 background_color = "#0a1931"
 
@@ -22,9 +22,7 @@ st.sidebar.image(sidebar_logo, width=250)
 st.sidebar.markdown("""
     <div style="font-size: 20px;"><strong>Aplicativo desenvolvido por:</strong></div>
     <ul style="font-size: 18px; margin-left: 20px;">
-        <li>Gabriel Novais</li>
         <li>João Victor Sepulveda</li>
-        <li>Pedro Henrique Lapa</li>
     </ul>
 """, unsafe_allow_html=True)
 
