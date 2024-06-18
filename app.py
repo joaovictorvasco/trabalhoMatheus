@@ -14,7 +14,7 @@ if 'show_result' not in st.session_state:
     st.session_state.show_result = False
 
 sidebar_logo = "logo_fortune.png"
-main_logo = "logo_horizontal.jpg"
+main_logo = "logo_fortune_paisagem.png"
 background_color = "#0a1931"
 
 # Sidebar logo display
